@@ -1,0 +1,63 @@
+2024-11-10 16:32:46,010, No pre-trained model found. Starting from scratch.
+2024-11-10 16:33:52,339, No pre-trained model found. Starting from scratch.
+2024-11-10 16:34:24,892, Episode: 1, Score: 1974, Reward: 59
+2024-11-10 16:35:26,766, Episode: 2, Score: 3745, Reward: 163
+2024-11-10 16:36:12,707, Loading pre-trained model...
+2024-11-10 16:37:24,078, Episode: 1, Score: 4304, Reward: 111
+2024-11-10 16:37:40,052, Episode: 2, Score: 978, Reward: -21
+2024-11-10 16:38:22,760, Loading pre-trained model...
+2024-11-10 16:39:57,488, Loading pre-trained model...
+2024-11-10 16:40:38,488, Loading pre-trained model...
+2024-11-10 16:43:55,315, Loading pre-trained model...
+2024-11-10 16:44:32,805, Episode: 1, Score: 2162, Reward: 87
+2024-11-10 16:45:22,946, Episode: 2, Score: 3049, Reward: 118
+2024-11-10 16:46:41,920, Episode: 3, Score: 4798, Reward: 260
+2024-11-10 16:47:08,208, Episode: 4, Score: 1605, Reward: 5
+2024-11-10 16:47:18,897, Episode: 5, Score: 656, Reward: -14
+2024-11-10 16:47:48,026, Episode: 6, Score: 1759, Reward: 58
+2024-11-10 16:48:48,576, Episode: 7, Score: 3691, Reward: 133
+2024-11-10 16:49:18,873, Episode: 8, Score: 1838, Reward: 41
+2024-11-10 16:49:37,775, Episode: 9, Score: 1147, Reward: 16
+2024-11-10 16:49:53,798, Episode: 10, Score: 972, Reward: 10
+2024-11-10 16:51:27,530, Episode: 11, Score: 5705, Reward: 248
+2024-11-10 16:51:53,303, Episode: 12, Score: 1559, Reward: 0
+2024-11-10 16:52:42,513, Episode: 13, Score: 3006, Reward: 98
+2024-11-10 16:52:53,832, Episode: 14, Score: 679, Reward: -5
+2024-11-10 16:54:27,686, Episode: 15, Score: 5708, Reward: 242
+2024-11-10 16:55:02,732, Episode: 16, Score: 2124, Reward: 36
+2024-11-10 16:55:19,435, Episode: 17, Score: 1024, Reward: -4
+2024-11-10 16:55:45,002, Episode: 18, Score: 1544, Reward: 43
+2024-11-10 16:57:17,924, Episode: 19, Score: 5652, Reward: 249
+2024-11-10 16:57:47,942, Episode: 20, Score: 1821, Reward: 54
+2024-11-10 16:59:30,011, Episode: 21, Score: 6201, Reward: 265
+2024-11-10 17:00:04,542, Episode: 22, Score: 2102, Reward: 77
+2024-11-10 17:00:58,272, Episode: 23, Score: 3260, Reward: 159
+2024-11-10 17:02:03,376, Episode: 24, Score: 3961, Reward: 154
+2024-11-10 17:02:24,887, Episode: 25, Score: 1296, Reward: 27
+2024-11-10 17:02:56,351, Episode: 26, Score: 1906, Reward: 46
+2024-11-10 17:03:14,523, Episode: 27, Score: 1109, Reward: 11
+2024-11-10 17:03:48,960, Episode: 28, Score: 2102, Reward: 40
+2024-11-10 17:04:04,349, Episode: 29, Score: 933, Reward: 14
+2024-11-10 17:05:29,963, Episode: 30, Score: 5201, Reward: 204
+2024-11-10 17:06:53,825, Episode: 31, Score: 5095, Reward: 235
+2024-11-10 17:07:14,695, Episode: 32, Score: 1276, Reward: 33
+2024-11-10 17:08:01,160, Episode: 33, Score: 2818, Reward: 91
+2024-11-10 17:09:04,047, Episode: 34, Score: 3822, Reward: 134
+2024-11-10 17:09:49,484, Episode: 35, Score: 2761, Reward: 95
+2024-11-10 17:10:56,936, Episode: 36, Score: 4112, Reward: 147
+2024-11-10 17:11:44,327, Episode: 37, Score: 2858, Reward: 75
+2024-11-10 17:12:26,321, Episode: 38, Score: 2555, Reward: 62
+2024-11-10 17:13:04,488, Episode: 39, Score: 2319, Reward: 62
+2024-11-10 17:13:30,732, Episode: 40, Score: 1605, Reward: 16
+2024-11-10 17:14:14,596, Episode: 41, Score: 2651, Reward: 68
+2024-11-10 17:14:31,031, Episode: 42, Score: 1003, Reward: 16
+2024-11-10 17:15:34,726, Episode: 43, Score: 3871, Reward: 138
+2024-11-10 17:16:29,778, Episode: 44, Score: 3357, Reward: 119
+2024-11-10 17:18:04,993, Episode: 45, Score: 5774, Reward: 303
+2024-11-10 17:19:22,350, Episode: 46, Score: 4701, Reward: 172
+2024-11-10 17:19:58,465, Episode: 47, Score: 2201, Reward: 55
+2024-11-10 17:20:11,818, Episode: 48, Score: 803, Reward: -4
+2024-11-10 17:20:42,535, Episode: 49, Score: 1873, Reward: 45
+2024-11-10 17:21:37,160, Episode: 50, Score: 3301, Reward: 118
+2024-11-10 17:22:15,521, Episode: 51, Score: 2326, Reward: 86
+2024-11-10 17:23:40,521, Episode: 52, Score: 5154, Reward: 268
