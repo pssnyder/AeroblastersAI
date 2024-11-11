@@ -10,9 +10,7 @@
 import os
 import random
 import pygame
-from objects import Background, Player, Enemy, Bullet, Explosion, Fuel, \
-					Powerup, Button, Message, BlinkingText
-
+from objects import Background, Player, Enemy, Bullet, Explosion, Fuel, Powerup, Button, Message, BlinkingText
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -22,6 +20,8 @@ from collections import deque
 import logging
 
 pygame.init()
+
+# Screen settings
 SCREEN = WIDTH, HEIGHT = 288, 512
 
 info = pygame.display.Info()
@@ -29,16 +29,19 @@ width = info.current_w
 height = info.current_h
 
 if width >= height:
-	win = pygame.display.set_mode(SCREEN, pygame.NOFRAME)
+    #win = pygame.display.set_mode(SCREEN, pygame.NOFRAME)
+    win = pygame.display.set_mode(SCREEN,pygame.SCALED)
 else:
-	win = pygame.display.set_mode(SCREEN, pygame.NOFRAME | pygame.SCALED | pygame.FULLSCREEN)
+	#win = pygame.display.set_mode(SCREEN, pygame.NOFRAME | pygame.SCALED | pygame.FULLSCREEN)
+    win = pygame.display.set_mode(SCREEN, pygame.SCALED | pygame.FULLSCREEN)
 
+pygame.display.set_caption("Deep Q Network")
 clock = pygame.time.Clock()
 FPS = 60
 
 # LOGGING *********************************************************************
 # Configure logging
-logging.basicConfig(filename='deepq_ai_performance.log', level=logging.INFO,
+logging.basicConfig(filename='dqn_ai_performance.log', level=logging.INFO,
                     format='%(asctime)s, %(message)s')
 
 def log_performance(score, reward, episode):
@@ -94,14 +97,6 @@ tap_to_play_msg = tap_to_play = BlinkingText(WIDTH//2, HEIGHT-60, 25, "Tap To Pl
 				 tap_to_play_font, WHITE, win)
 reward_msg = Message(WIDTH-70, 58, 30, '0', final_score_font, GREEN, win)
 episode_msg = Message(WIDTH-70, 88, 30, '1', final_score_font, BLUE, win)
-
-# SOUNDS **********************************************************************
-
-player_bullet_fx = pygame.mixer.Sound('Sounds/gunshot.wav')
-click_fx = pygame.mixer.Sound('Sounds/click.mp3')
-collision_fx = pygame.mixer.Sound('Sounds/mini_exp.mp3')
-blast_fx = pygame.mixer.Sound('Sounds/blast.wav')
-fuel_fx = pygame.mixer.Sound('Sounds/fuel.wav')
 
 # GROUPS & OBJECTS ************************************************************
 
@@ -231,6 +226,7 @@ class DQNAgent:
 		"""Save model weights."""
 		torch.save(self.model.state_dict(), name)
 		
+
 def ai_control():
 	# AI control logic for moving and shooting.
 	global moving_left, moving_right
@@ -289,6 +285,7 @@ done = False
 
 # Create DeepQ AI Agent
 agent = DQNAgent(state_size=state_size, action_size=action_size)
+
 # Check if pre-trained model exists and load it
 if os.path.exists(model_path):
     logging.info("Loading pre-trained model...")
@@ -307,78 +304,7 @@ while running:
 			if event.key == pygame.K_ESCAPE or event.key == pygame.K_q:
 				running = False
 
-		if event.type == pygame.KEYDOWN and game_page:
-			if event.key == pygame.K_LEFT:
-				moving_left = True
-			if event.key == pygame.K_RIGHT:
-				moving_right = True
-			if event.key == pygame.K_SPACE:
-				shoot_bullet()
-
-		if event.type == pygame.MOUSEBUTTONDOWN:
-			if home_page:
-				home_page = False
-				game_page = True
-			elif game_page:
-				x, y = event.pos
-				if p.rect.collidepoint((x,y)):
-					shoot_bullet()
-				elif x <= WIDTH // 2:
-					moving_left = True
-				elif x > WIDTH // 2:
-					moving_right = True
-
-		if event.type == pygame.KEYUP:
-			moving_left = False
-			moving_right = False
-
-		if event.type == pygame.MOUSEBUTTONUP:
-			moving_left = False
-			moving_right = False
-
-	if home_page:
-		win.fill(BLACK)
-		win.blit(logo_img, (30, 80))
-		win.blit(fighter_img, (WIDTH//2 - 50, HEIGHT//2))
-		pygame.draw.circle(win, WHITE, (WIDTH//2, HEIGHT//2 + 50), 50, 4)
-		tap_to_play_msg.update()
-
-	if score_page:
-		win.fill(BLACK)
-		win.blit(logo_img, (30, 50))
-		game_over_msg.update()
-		final_score_msg.update(score)
-
-		if home_btn.draw(win):
-			home_page = True
-			game_page = False
-			score_page = False
-			reset()
-
-			plane_destroy_count = 0
-			level = 1
-			score = 0
-
-		if replay_btn.draw(win):
-			score_page = False
-			game_page = True
-			reset()
-
-			plane_destroy_count = 0
-			score = 0
-
-		if sound_btn.draw(win):
-			sound_on = not sound_on
-
-			if sound_on:
-				sound_btn.update_image(sound_on_img)
-				pygame.mixer.music.play(loops=-1)
-			else:
-				sound_btn.update_image(sound_off_img)
-				pygame.mixer.music.stop()
-
 	if game_page:
-		
 		state, action = ai_control()  # Call AI control function instead of handling player input manually
 		
 		current_time = pygame.time.get_ticks()
@@ -427,7 +353,6 @@ while running:
 		fuel_group.draw(win)
 		powerup_group.update()
 		powerup_group.draw(win)
-
 		enemy_group.update(enemy_bullet_group, explosion_group)
 		enemy_group.draw(win)
 		
@@ -508,7 +433,6 @@ while running:
 				episode += 1
 				reward = 0
 				game_page = True
-				#score_page = True
 				done = True
 				reset()
 
@@ -550,6 +474,6 @@ while running:
 	episode_msg.update(f'E: {episode}')
 	pygame.draw.rect(win, WHITE, (0,0, WIDTH, HEIGHT), 5, border_radius=4)
 	clock.tick(FPS)
-	pygame.display.update()  # Only update display every N frames
+	pygame.display.update()
 
 pygame.quit()
